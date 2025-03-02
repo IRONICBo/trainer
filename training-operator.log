@@ -1,0 +1,175 @@
+2025-03-02T03:37:54Z	INFO	setup	Probe endpoints are configured on healthz and readyz
+2025-03-02T03:37:54Z	INFO	setup	starting manager
+2025-03-02T03:37:54Z	INFO	setup	Waiting for certificate generation to complete
+2025-03-02T03:37:54Z	INFO	controller-runtime.metrics	Starting metrics server
+2025-03-02T03:37:54Z	INFO	controller-runtime.metrics	Serving metrics server	{"bindAddress": ":8080", "secure": false}
+2025-03-02T03:37:54Z	INFO	starting server	{"name": "health probe", "addr": "[::]:8081"}
+2025-03-02T03:37:54Z	INFO	cert-rotation	starting cert rotator controller
+2025-03-02T03:37:54Z	INFO	Starting EventSource	{"controller": "cert-rotator", "source": "kind source: *v1.Secret"}
+2025-03-02T03:37:54Z	INFO	Starting EventSource	{"controller": "cert-rotator", "source": "kind source: *unstructured.Unstructured"}
+2025-03-02T03:37:54Z	INFO	Starting Controller	{"controller": "cert-rotator"}
+2025-03-02T03:37:54Z	INFO	cert-rotation	refreshing CA and server certs
+2025-03-02T03:37:54Z	INFO	Starting workers	{"controller": "cert-rotator", "worker count": 1}
+2025-03-02T03:37:54Z	INFO	cert-rotation	refreshing CA and server certs
+2025-03-02T03:37:54Z	INFO	cert-rotation	server certs refreshed
+2025-03-02T03:37:54Z	ERROR	cert-rotation	could not refresh CA and server certs	{"error": "Operation cannot be fulfilled on secrets \"training-operator-webhook-cert\": the object has been modified; please apply your changes to the latest version and try again"}
+2025-03-02T03:37:54Z	INFO	cert-rotation	no cert refresh needed
+2025-03-02T03:37:54Z	ERROR	cert-rotation	secret is not well-formed, cannot update webhook configurations	{"error": "Cert secret is not well-formed, missing ca.crt", "errorVerbose": "Cert secret is not well-formed, missing ca.crt\ngithub.com/open-policy-agent/cert-controller/pkg/rotator.buildArtifactsFromSecret\n\t/go/pkg/mod/github.com/open-policy-agent/cert-controller@v0.12.0/pkg/rotator/rotator.go:508\ngithub.com/open-policy-agent/cert-controller/pkg/rotator.(*ReconcileWH).Reconcile\n\t/go/pkg/mod/github.com/open-policy-agent/cert-controller@v0.12.0/pkg/rotator/rotator.go:784\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller[...]).Reconcile\n\t/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.19.1/pkg/internal/controller/controller.go:116\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller[...]).reconcileHandler\n\t/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.19.1/pkg/internal/controller/controller.go:303\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller[...]).processNextWorkItem\n\t/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.19.1/pkg/internal/controller/controller.go:263\nsigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller[...]).Start.func2.2\n\t/go/pkg/mod/sigs.k8s.io/controller-runtime@v0.19.1/pkg/internal/controller/controller.go:224\nruntime.goexit\n\t/usr/local/go/src/runtime/asm_amd64.s:1700"}
+2025-03-02T03:37:54Z	INFO	cert-rotation	no cert refresh needed
+2025-03-02T03:37:54Z	INFO	cert-rotation	Ensuring CA cert	{"name": "validator.training-operator.kubeflow.org", "gvk": "admissionregistration.k8s.io/v1, Kind=ValidatingWebhookConfiguration", "name": "validator.training-operator.kubeflow.org", "gvk": "admissionregistration.k8s.io/v1, Kind=ValidatingWebhookConfiguration"}
+2025-03-02T03:37:54Z	INFO	cert-rotation	no cert refresh needed
+2025-03-02T03:37:54Z	INFO	cert-rotation	Ensuring CA cert	{"name": "validator.training-operator.kubeflow.org", "gvk": "admissionregistration.k8s.io/v1, Kind=ValidatingWebhookConfiguration", "name": "validator.training-operator.kubeflow.org", "gvk": "admissionregistration.k8s.io/v1, Kind=ValidatingWebhookConfiguration"}
+2025-03-02T03:37:55Z	INFO	cert-rotation	certs are ready in /tmp/k8s-webhook-server/serving-certs
+2025-03-02T03:37:55Z	INFO	cert-rotation	CA certs are injected to webhooks
+2025-03-02T03:37:55Z	INFO	setup	Certs ready
+2025-03-02T03:37:55Z	INFO	setup	registering controllers...
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "jaxjob-controller", "source": "kind source: *v1.JAXJob"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "jaxjob-controller", "source": "kind source: *v1.Pod"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "jaxjob-controller", "source": "kind source: *v1.Service"}
+2025-03-02T03:37:55Z	INFO	Starting Controller	{"controller": "jaxjob-controller"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.builder	skip registering a mutating webhook, object does not implement admission.Defaulter or WithDefaulter wasn't called	{"GVK": "kubeflow.org/v1, Kind=JAXJob"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.builder	Registering a validating webhook	{"GVK": "kubeflow.org/v1, Kind=JAXJob", "path": "/validate-kubeflow-org-v1-jaxjob"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.webhook	Registering webhook	{"path": "/validate-kubeflow-org-v1-jaxjob"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.webhook	Starting webhook server
+2025-03-02T03:37:55Z	INFO	controller-runtime.certwatcher	Updated current TLS certificate
+2025-03-02T03:37:55Z	INFO	controller-runtime.webhook	Serving webhook server	{"host": "", "port": 9443}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "tfjob-controller", "source": "kind source: *v1.TFJob"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "tfjob-controller", "source": "kind source: *v1.Pod"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "tfjob-controller", "source": "kind source: *v1.Service"}
+2025-03-02T03:37:55Z	INFO	Starting Controller	{"controller": "tfjob-controller"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.certwatcher	Starting certificate watcher
+2025-03-02T03:37:55Z	INFO	controller-runtime.builder	skip registering a mutating webhook, object does not implement admission.Defaulter or WithDefaulter wasn't called	{"GVK": "kubeflow.org/v1, Kind=TFJob"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.builder	Registering a validating webhook	{"GVK": "kubeflow.org/v1, Kind=TFJob", "path": "/validate-kubeflow-org-v1-tfjob"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.webhook	Registering webhook	{"path": "/validate-kubeflow-org-v1-tfjob"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "pytorchjob-controller", "source": "kind source: *v1.PyTorchJob"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "pytorchjob-controller", "source": "kind source: *v1.Pod"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "pytorchjob-controller", "source": "kind source: *v1.Service"}
+2025-03-02T03:37:55Z	INFO	Starting Controller	{"controller": "pytorchjob-controller"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.builder	skip registering a mutating webhook, object does not implement admission.Defaulter or WithDefaulter wasn't called	{"GVK": "kubeflow.org/v1, Kind=PyTorchJob"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.builder	Registering a validating webhook	{"GVK": "kubeflow.org/v1, Kind=PyTorchJob", "path": "/validate-kubeflow-org-v1-pytorchjob"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.webhook	Registering webhook	{"path": "/validate-kubeflow-org-v1-pytorchjob"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "xgboostjob-controller", "source": "kind source: *v1.XGBoostJob"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "xgboostjob-controller", "source": "kind source: *v1.Pod"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "xgboostjob-controller", "source": "kind source: *v1.Service"}
+2025-03-02T03:37:55Z	INFO	Starting Controller	{"controller": "xgboostjob-controller"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.builder	skip registering a mutating webhook, object does not implement admission.Defaulter or WithDefaulter wasn't called	{"GVK": "kubeflow.org/v1, Kind=XGBoostJob"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.builder	Registering a validating webhook	{"GVK": "kubeflow.org/v1, Kind=XGBoostJob", "path": "/validate-kubeflow-org-v1-xgboostjob"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.webhook	Registering webhook	{"path": "/validate-kubeflow-org-v1-xgboostjob"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "mpijob-controller", "source": "kind source: *v1.MPIJob"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "mpijob-controller", "source": "kind source: *v1.Pod"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "mpijob-controller", "source": "kind source: *v1.ConfigMap"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "mpijob-controller", "source": "kind source: *v1.Role"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "mpijob-controller", "source": "kind source: *v1.RoleBinding"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "mpijob-controller", "source": "kind source: *v1.ServiceAccount"}
+2025-03-02T03:37:55Z	INFO	Starting Controller	{"controller": "mpijob-controller"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "paddlejob-controller", "source": "kind source: *v1.PaddleJob"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "paddlejob-controller", "source": "kind source: *v1.Pod"}
+2025-03-02T03:37:55Z	INFO	Starting EventSource	{"controller": "paddlejob-controller", "source": "kind source: *v1.Service"}
+2025-03-02T03:37:55Z	INFO	Starting Controller	{"controller": "paddlejob-controller"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.builder	skip registering a mutating webhook, object does not implement admission.Defaulter or WithDefaulter wasn't called	{"GVK": "kubeflow.org/v1, Kind=PaddleJob"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.builder	Registering a validating webhook	{"GVK": "kubeflow.org/v1, Kind=PaddleJob", "path": "/validate-kubeflow-org-v1-paddlejob"}
+2025-03-02T03:37:55Z	INFO	controller-runtime.webhook	Registering webhook	{"path": "/validate-kubeflow-org-v1-paddlejob"}
+2025-03-02T03:37:56Z	INFO	Starting workers	{"controller": "jaxjob-controller", "worker count": 1}
+2025-03-02T03:37:56Z	INFO	Starting workers	{"controller": "tfjob-controller", "worker count": 1}
+2025-03-02T03:37:56Z	INFO	Starting workers	{"controller": "pytorchjob-controller", "worker count": 1}
+2025-03-02T03:37:56Z	INFO	Starting workers	{"controller": "xgboostjob-controller", "worker count": 1}
+2025-03-02T03:37:56Z	INFO	Starting workers	{"controller": "paddlejob-controller", "worker count": 1}
+2025-03-02T03:37:56Z	INFO	Starting workers	{"controller": "mpijob-controller", "worker count": 1}
+time="2025-03-02T03:38:11Z" level=info msg="PyTorchJob pytorch-simple is created."
+2025-03-02T03:38:11Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:38:11Z" level=info msg="Reconciling for job pytorch-simple"
+time="2025-03-02T03:38:11Z" level=info msg="Need to create new pod: master-0" job=kubeflow.pytorch-simple replica-type=master uid=d0bb8893-b889-43e4-9384-67cb36db631f
+time="2025-03-02T03:38:11Z" level=info msg="Controller pytorch-simple created pod pytorch-simple-master-0" job=.pytorch-simple pod=.pytorch-simple-master-0 uid=
+time="2025-03-02T03:38:11Z" level=info msg="need to create new service: Master-0" job=kubeflow.pytorch-simple replica-type=master uid=d0bb8893-b889-43e4-9384-67cb36db631f
+2025-03-02T03:38:11Z	DEBUG	events	Created pod: pytorch-simple-master-0	{"type": "Normal", "object": {"kind":"PyTorchJob","namespace":"kubeflow","name":"pytorch-simple","uid":"d0bb8893-b889-43e4-9384-67cb36db631f","apiVersion":"kubeflow.org/v1","resourceVersion":"907"}, "reason": "SuccessfulCreatePod"}
+time="2025-03-02T03:38:11Z" level=info msg="Controller pytorch-simple created service pytorch-simple-master-0"
+time="2025-03-02T03:38:11Z" level=info msg="Need to create new pod: worker-0" job=kubeflow.pytorch-simple replica-type=worker uid=d0bb8893-b889-43e4-9384-67cb36db631f
+2025-03-02T03:38:11Z	DEBUG	events	Created service: pytorch-simple-master-0	{"type": "Normal", "object": {"kind":"PyTorchJob","namespace":"kubeflow","name":"pytorch-simple","uid":"d0bb8893-b889-43e4-9384-67cb36db631f","apiVersion":"kubeflow.org/v1","resourceVersion":"907"}, "reason": "SuccessfulCreateService"}
+time="2025-03-02T03:38:11Z" level=info msg="Controller pytorch-simple created pod pytorch-simple-worker-0" job=.pytorch-simple pod=.pytorch-simple-worker-0 uid=
+time="2025-03-02T03:38:11Z" level=info msg="need to create new service: Worker-0" job=kubeflow.pytorch-simple replica-type=worker uid=d0bb8893-b889-43e4-9384-67cb36db631f
+2025-03-02T03:38:11Z	DEBUG	events	Created pod: pytorch-simple-worker-0	{"type": "Normal", "object": {"kind":"PyTorchJob","namespace":"kubeflow","name":"pytorch-simple","uid":"d0bb8893-b889-43e4-9384-67cb36db631f","apiVersion":"kubeflow.org/v1","resourceVersion":"907"}, "reason": "SuccessfulCreatePod"}
+time="2025-03-02T03:38:11Z" level=info msg="Controller pytorch-simple created service pytorch-simple-worker-0"
+time="2025-03-02T03:38:11Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Master expected=1, running=0, succeeded=0, failed=0, Replicas=1"
+time="2025-03-02T03:38:11Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Worker expected=1, running=0, succeeded=0, failed=0, Replicas=1"
+2025-03-02T03:38:11Z	DEBUG	events	Created service: pytorch-simple-worker-0	{"type": "Normal", "object": {"kind":"PyTorchJob","namespace":"kubeflow","name":"pytorch-simple","uid":"d0bb8893-b889-43e4-9384-67cb36db631f","apiVersion":"kubeflow.org/v1","resourceVersion":"907"}, "reason": "SuccessfulCreateService"}
+2025-03-02T03:38:11Z	INFO	KubeAPIWarningLogger	unknown field "spec.pytorchReplicaSpecs.Master.template.metadata.creationTimestamp"
+2025-03-02T03:38:11Z	INFO	KubeAPIWarningLogger	unknown field "spec.pytorchReplicaSpecs.Worker.template.metadata.creationTimestamp"
+2025-03-02T03:38:11Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:38:11Z" level=info msg="Reconciling for job pytorch-simple"
+time="2025-03-02T03:38:11Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Master expected=1, running=0, succeeded=0, failed=0, Replicas=1"
+time="2025-03-02T03:38:11Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Worker expected=1, running=0, succeeded=0, failed=0, Replicas=1"
+2025-03-02T03:38:11Z	ERROR	Reconcile PyTorchJob error	{"pytorchjob": {"name":"pytorch-simple","namespace":"kubeflow"}, "error": "Operation cannot be fulfilled on pytorchjobs.kubeflow.org \"pytorch-simple\": the object has been modified; please apply your changes to the latest version and try again"}
+2025-03-02T03:38:11Z	ERROR	Reconciler error	{"controller": "pytorchjob-controller", "object": {"name":"pytorch-simple","namespace":"kubeflow"}, "namespace": "kubeflow", "name": "pytorch-simple", "reconcileID": "6feebb67-87ae-4115-b078-f8d2f8f163e4", "error": "Operation cannot be fulfilled on pytorchjobs.kubeflow.org \"pytorch-simple\": the object has been modified; please apply your changes to the latest version and try again"}
+2025-03-02T03:38:11Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:38:11Z" level=info msg="Reconciling for job pytorch-simple"
+time="2025-03-02T03:38:11Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Master expected=1, running=0, succeeded=0, failed=0, Replicas=1"
+time="2025-03-02T03:38:11Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Worker expected=1, running=0, succeeded=0, failed=0, Replicas=1"
+2025-03-02T03:38:11Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:38:11Z" level=info msg="Reconciling for job pytorch-simple"
+time="2025-03-02T03:38:11Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Master expected=1, running=0, succeeded=0, failed=0, Replicas=1"
+time="2025-03-02T03:38:11Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Worker expected=1, running=0, succeeded=0, failed=0, Replicas=1"
+2025-03-02T03:38:17Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:38:17Z" level=info msg="Reconciling for job pytorch-simple"
+time="2025-03-02T03:38:17Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Master expected=1, running=1, succeeded=0, failed=0, Replicas=1"
+time="2025-03-02T03:38:17Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Worker expected=1, running=0, succeeded=0, failed=0, Replicas=1"
+2025-03-02T03:38:17Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:38:17Z" level=info msg="Reconciling for job pytorch-simple"
+time="2025-03-02T03:38:17Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Master expected=1, running=1, succeeded=0, failed=0, Replicas=1"
+time="2025-03-02T03:38:17Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Worker expected=1, running=0, succeeded=0, failed=0, Replicas=1"
+2025-03-02T03:38:25Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:38:25Z" level=info msg="Reconciling for job pytorch-simple"
+time="2025-03-02T03:38:25Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Worker expected=1, running=0, succeeded=0, failed=0, Replicas=1"
+time="2025-03-02T03:38:25Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Master expected=1, running=1, succeeded=0, failed=0, Replicas=1"
+2025-03-02T03:38:28Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:38:28Z" level=info msg="Reconciling for job pytorch-simple"
+time="2025-03-02T03:38:28Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Master expected=1, running=1, succeeded=0, failed=0, Replicas=1"
+time="2025-03-02T03:38:28Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Worker expected=1, running=1, succeeded=0, failed=0, Replicas=1"
+2025-03-02T03:38:28Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:38:28Z" level=info msg="Reconciling for job pytorch-simple"
+time="2025-03-02T03:38:28Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Master expected=1, running=1, succeeded=0, failed=0, Replicas=1"
+time="2025-03-02T03:38:28Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Worker expected=1, running=1, succeeded=0, failed=0, Replicas=1"
+2025-03-02T03:51:13Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:51:13Z" level=info msg="Reconciling for job pytorch-simple"
+time="2025-03-02T03:51:13Z" level=info msg="Pod: kubeflow.pytorch-simple-worker-0 exited with code 0" job=kubeflow.pytorch-simple replica-type=worker uid=d0bb8893-b889-43e4-9384-67cb36db631f
+time="2025-03-02T03:51:13Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Master expected=1, running=1, succeeded=0, failed=0, Replicas=1"
+time="2025-03-02T03:51:13Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Worker expected=1, running=1, succeeded=0, failed=0, Replicas=1"
+2025-03-02T03:51:13Z	DEBUG	events	Pod: kubeflow.pytorch-simple-worker-0 exited with code 0	{"type": "Normal", "object": {"kind":"PyTorchJob","namespace":"kubeflow","name":"pytorch-simple","uid":"d0bb8893-b889-43e4-9384-67cb36db631f","apiVersion":"kubeflow.org/v1","resourceVersion":"970"}, "reason": "ExitedWithCode"}
+2025-03-02T03:51:14Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:51:14Z" level=info msg="Reconciling for job pytorch-simple"
+time="2025-03-02T03:51:14Z" level=info msg="Pod: kubeflow.pytorch-simple-master-0 exited with code 0" job=kubeflow.pytorch-simple replica-type=master uid=d0bb8893-b889-43e4-9384-67cb36db631f
+time="2025-03-02T03:51:14Z" level=info msg="Pod: kubeflow.pytorch-simple-worker-0 exited with code 0" job=kubeflow.pytorch-simple replica-type=worker uid=d0bb8893-b889-43e4-9384-67cb36db631f
+time="2025-03-02T03:51:14Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Master expected=1, running=1, succeeded=0, failed=0, Replicas=1"
+time="2025-03-02T03:51:14Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Worker expected=1, running=1, succeeded=0, failed=0, Replicas=1"
+2025-03-02T03:51:14Z	DEBUG	events	Pod: kubeflow.pytorch-simple-master-0 exited with code 0	{"type": "Normal", "object": {"kind":"PyTorchJob","namespace":"kubeflow","name":"pytorch-simple","uid":"d0bb8893-b889-43e4-9384-67cb36db631f","apiVersion":"kubeflow.org/v1","resourceVersion":"970"}, "reason": "ExitedWithCode"}
+2025-03-02T03:51:14Z	DEBUG	events	Pod: kubeflow.pytorch-simple-worker-0 exited with code 0	{"type": "Normal", "object": {"kind":"PyTorchJob","namespace":"kubeflow","name":"pytorch-simple","uid":"d0bb8893-b889-43e4-9384-67cb36db631f","apiVersion":"kubeflow.org/v1","resourceVersion":"970"}, "reason": "ExitedWithCode"}
+2025-03-02T03:51:14Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:51:14Z" level=info msg="Reconciling for job pytorch-simple"
+time="2025-03-02T03:51:14Z" level=info msg="Ignoring inactive pod kubeflow/pytorch-simple-worker-0 in state Succeeded, deletion time <nil>"
+time="2025-03-02T03:51:14Z" level=info msg="Pod: kubeflow.pytorch-simple-worker-0 exited with code 0" job=kubeflow.pytorch-simple replica-type=worker uid=d0bb8893-b889-43e4-9384-67cb36db631f
+time="2025-03-02T03:51:14Z" level=info msg="Pod: kubeflow.pytorch-simple-master-0 exited with code 0" job=kubeflow.pytorch-simple replica-type=master uid=d0bb8893-b889-43e4-9384-67cb36db631f
+time="2025-03-02T03:51:14Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Worker expected=0, running=0, succeeded=1, failed=0, Replicas=1"
+time="2025-03-02T03:51:14Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Master expected=1, running=1, succeeded=0, failed=0, Replicas=1"
+2025-03-02T03:51:14Z	DEBUG	events	Pod: kubeflow.pytorch-simple-worker-0 exited with code 0	{"type": "Normal", "object": {"kind":"PyTorchJob","namespace":"kubeflow","name":"pytorch-simple","uid":"d0bb8893-b889-43e4-9384-67cb36db631f","apiVersion":"kubeflow.org/v1","resourceVersion":"970"}, "reason": "ExitedWithCode"}
+2025-03-02T03:51:14Z	DEBUG	events	Pod: kubeflow.pytorch-simple-master-0 exited with code 0	{"type": "Normal", "object": {"kind":"PyTorchJob","namespace":"kubeflow","name":"pytorch-simple","uid":"d0bb8893-b889-43e4-9384-67cb36db631f","apiVersion":"kubeflow.org/v1","resourceVersion":"970"}, "reason": "ExitedWithCode"}
+2025-03-02T03:51:14Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:51:14Z" level=info msg="Reconciling for job pytorch-simple"
+time="2025-03-02T03:51:14Z" level=info msg="Ignoring inactive pod kubeflow/pytorch-simple-worker-0 in state Succeeded, deletion time <nil>"
+time="2025-03-02T03:51:14Z" level=info msg="Pod: kubeflow.pytorch-simple-master-0 exited with code 0" job=kubeflow.pytorch-simple replica-type=master uid=d0bb8893-b889-43e4-9384-67cb36db631f
+time="2025-03-02T03:51:14Z" level=info msg="Pod: kubeflow.pytorch-simple-worker-0 exited with code 0" job=kubeflow.pytorch-simple replica-type=worker uid=d0bb8893-b889-43e4-9384-67cb36db631f
+time="2025-03-02T03:51:14Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Master expected=1, running=1, succeeded=0, failed=0, Replicas=1"
+time="2025-03-02T03:51:14Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Worker expected=0, running=0, succeeded=1, failed=0, Replicas=1"
+2025-03-02T03:51:14Z	DEBUG	events	Pod: kubeflow.pytorch-simple-master-0 exited with code 0	{"type": "Normal", "object": {"kind":"PyTorchJob","namespace":"kubeflow","name":"pytorch-simple","uid":"d0bb8893-b889-43e4-9384-67cb36db631f","apiVersion":"kubeflow.org/v1","resourceVersion":"1978"}, "reason": "ExitedWithCode"}
+2025-03-02T03:51:14Z	DEBUG	events	Pod: kubeflow.pytorch-simple-worker-0 exited with code 0	{"type": "Normal", "object": {"kind":"PyTorchJob","namespace":"kubeflow","name":"pytorch-simple","uid":"d0bb8893-b889-43e4-9384-67cb36db631f","apiVersion":"kubeflow.org/v1","resourceVersion":"1978"}, "reason": "ExitedWithCode"}
+2025-03-02T03:51:15Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:51:15Z" level=info msg="Reconciling for job pytorch-simple"
+time="2025-03-02T03:51:15Z" level=info msg="Ignoring inactive pod kubeflow/pytorch-simple-master-0 in state Succeeded, deletion time <nil>"
+time="2025-03-02T03:51:15Z" level=info msg="Ignoring inactive pod kubeflow/pytorch-simple-worker-0 in state Succeeded, deletion time <nil>"
+time="2025-03-02T03:51:15Z" level=info msg="Pod: kubeflow.pytorch-simple-master-0 exited with code 0" job=kubeflow.pytorch-simple replica-type=master uid=d0bb8893-b889-43e4-9384-67cb36db631f
+time="2025-03-02T03:51:15Z" level=info msg="Pod: kubeflow.pytorch-simple-worker-0 exited with code 0" job=kubeflow.pytorch-simple replica-type=worker uid=d0bb8893-b889-43e4-9384-67cb36db631f
+time="2025-03-02T03:51:15Z" level=info msg="PyTorchJob=pytorch-simple, ReplicaType=Master expected=0, running=0, succeeded=1, failed=0, Replicas=1"
+time="2025-03-02T03:51:15Z" level=info msg="PyTorchJob pytorch-simple is successfully completed."
+2025-03-02T03:51:15Z	DEBUG	events	Pod: kubeflow.pytorch-simple-master-0 exited with code 0	{"type": "Normal", "object": {"kind":"PyTorchJob","namespace":"kubeflow","name":"pytorch-simple","uid":"d0bb8893-b889-43e4-9384-67cb36db631f","apiVersion":"kubeflow.org/v1","resourceVersion":"1978"}, "reason": "ExitedWithCode"}
+2025-03-02T03:51:15Z	DEBUG	events	Pod: kubeflow.pytorch-simple-worker-0 exited with code 0	{"type": "Normal", "object": {"kind":"PyTorchJob","namespace":"kubeflow","name":"pytorch-simple","uid":"d0bb8893-b889-43e4-9384-67cb36db631f","apiVersion":"kubeflow.org/v1","resourceVersion":"1978"}, "reason": "ExitedWithCode"}
+2025-03-02T03:51:15Z	DEBUG	events	PyTorchJob pytorch-simple is successfully completed.	{"type": "Normal", "object": {"kind":"PyTorchJob","namespace":"kubeflow","name":"pytorch-simple","uid":"d0bb8893-b889-43e4-9384-67cb36db631f","apiVersion":"kubeflow.org/v1","resourceVersion":"1978"}, "reason": "PyTorchJobSucceeded"}
+2025-03-02T03:51:15Z	DEBUG	No ElasicPolicy or Metric is specified, skipping HPA reconciling process	{"pytorchjob": "pytorch-simple"}
+time="2025-03-02T03:51:15Z" level=info msg="Reconciling for job pytorch-simple"

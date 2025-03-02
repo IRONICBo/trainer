@@ -19,6 +19,7 @@ spec:
       containers:
         - command:
             - /manager
+            - --gang-scheduler-name=volcano # Test for volcano
           image: kubeflow/training-operator
           name: training-operator
           ports:

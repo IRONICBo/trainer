@@ -102,7 +102,7 @@ run: manifests generate fmt vet ## Run a controller from your host.
 	go run ./cmd/training-operator.v1/main.go
 
 docker-build: test ## Build docker image with the manager.
-	docker build -t ${IMG} -f build/images/training-operator/Dockerfile .
+	docker build  --build-arg http_proxy="http://172.17.0.1:13668" --build-arg https_proxy="http://172.17.0.1:13668" -t ${IMG} -f build/images/training-operator/Dockerfile .
 
 docker-push: ## Push docker image with the manager.
 	docker push ${IMG}
