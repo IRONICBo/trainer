@@ -84,3 +84,5 @@ jobs:
           path-to-profile: cover.out
           working-directory: ${{ env.GOPATH }}/src/github.com/kubeflow/trainer
           parallel: true
+        env:
+          COVERALLS_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
